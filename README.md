@@ -1,38 +1,51 @@
 Title
+
 Predict earning “Capital Gains” on census income data with optimal machine learning algorithm.
 
 Abstract
+
 Capital Gains are profits resulted from any sort of investment; in this project I am going to predict if the individual got “Capital Gains” based on census income data.
 Data has been trained in python with multiple machine learning algorithms and based on outcome on different models, “Logistic Regression” has been identified as the algorithm that has better performance for this experiment.
 Training outcomes also prove that census income data like Age, Job, Education, Marital Status, Race, Sex, Country, and Income are useful to predict earning of capital gains for individual.
 
 Introduction
+
 Being able to predict individual financial situation like income, capital gain/loose and tax obligation been always a challenging matter, as a lot of different factors could affect the outcome.
 The result of this sort of prediction could be used by governments, finance institute to adjust their policies, products, and services to better serve people.
 Capital gains are profits resulted from any sort of investment that trigger tax liability for individual, which make it a desirable item to be predicted.
 Using machine learning algorithm and training data, I am going to predict earning “Capital Gains” for individual based on census data.
 
 Related Work
+
 A brief look at Kaggle website we can find out similar experiments trying to predict people “Income” using different type of data including “US Household income data” and “Census data”. Here are some links for your reference:
+
 https://www.kaggle.com/goldenoakresearch/us-household-income-stats-geo-locations
+
 https://www.kaggle.com/uciml/adult-census-income
+
 In this experiment I focused on “Capital Gains” prediction which is not being addressed by other similar works.
  
 Approach 
+
 Hypothesis
+
 Null Hypothesis H0:
+
 Census income data does not affect earning Capital Gains.
 
 Alternative Hypothesis HA:
+
 Census income data (Age, Job, Education, Marital Status, Race, Sex, Country, Income)
 affect possibility of earning Capital Gains.
 
 Design of experiment
+
 To be able to test the hypothesis first the data must be prepared with some operations, once the data is ready it could be loaded to the python and trained by machine learning algorithm.
 Using the model’s outcome efficacy of the algorithm will be identified and hypothesis could be accepted or rejected.
 Below implementation steps has been explained:
 
 Data Preparation steps
+
 1) Loading libraries to python.
 2) Importing CSV source data file to python.
 3) Data file did not have any titles, adding titles to data columns.
@@ -45,6 +58,7 @@ Data Preparation steps
 10) Check the numerical categories for issues.
 
 Training data and generating results steps
+
 1) Create train and test sets.
 2) Encode categorial variables.
 3) Feature scaling.
@@ -63,16 +77,22 @@ Training data and generating results steps
 - Apply 10-Fold Cross Validation and calculate average cross validation
 
 Issues
+
 Having 5 trainings model in the code caused “TOTAL NO. of ITERATIONS REACHED LIMIT” error, to fix the issue “max_iter” has been increased. 
 
 Experimental Evaluation 
+
 Source Data
+
 This dataset provided in Kaggle website:
+
 https://www.kaggle.com/qizarafzaal/adult-dataset
 And include bellow data:
+
 'Age', 'Work_Group', 'Id', 'Education', 'Education_No', 'Marital_Status', 'Job', 'Relationship', 'Race', 'Sex', 'Capital_Gain', 'Capital_Loss', 'Weekly_Work', 'Country', 'Income'.
 
 Hardware
+
 PC computer with core i5 cpu and 8GB of RAMs.
 
 Software
@@ -80,7 +100,9 @@ Software
 -	Python 3.9.4
 
 Interpretation of Results
+
 Compare Models
+
 	Decision Tree Classifier	Random Forest Classifier	Gaussian NB	AdaBoost Classifier	Logistic Regression	Best Performance
 Accuracy	0.8581	0.9023	0.1163	0.9171	0.9174	LogisticRegression
 Error	0.1419	0.0977	0.8837	0.0829	0.0826	LogisticRegression
@@ -92,6 +114,7 @@ Considering above chart the highest accuracy and lowest Error together with high
 Overall Logistic Regression following by AdaBoost Classifier models provided the best performance.
 
 Analyze Logistic Regression Model Results
+
 -	“Training set score = 0.9164” and “Test set score = 0.9174” which are very close numbers so there is not over or under fitting.
 -	Comparing “Model accuracy = 0.9174” and “Null Accuracy =0.9175” which very close prove the model is in good shape and trustworthy.
 -	High “Classification accuracy= 0.9174” and low “classification error= 0.0826” also prove the model is good.
@@ -103,12 +126,15 @@ Analyze Logistic Regression Model Results
 -	False Negatives (FN) is wrong prediction of not existence of observation within a certain class equal to 806, which the result is not looking ideal. Considering recall score of 0.9175 which is close to 1 we can conclude the number of False Negative is negligible.
 
 Other attempts to improve performance
+
 -	“Capital_Gain” column consist of 0 for existence of “No Capital Gain” and 1 for existence of “Capital Gain”, which is int type. In other attempt I converted the column to obj and assign “Capital_Gain” and “No_Capital_Gain” to it. The result was the same with no improvement. 
 
 -	To get more familiar with data set prediction results and make sure data cleanup has been done correctly, I also predicted the “Income”. In this case “AdaBoostClassifier” provided the best performance.
 
 Features and Algorithms overview
+
 Features
+
 Age, Job, Education, Marital Status, Race, Sex, Country, Income are the individual independent values in data used in this model to predict earning Capital Gains. 
 These features included numerical and categorical values. Using Onehot coding, categorical features converted to one feature per category, each binary.
 There were some other unrelated features included in this data set like person id that has been removed from training and model.
@@ -129,14 +155,17 @@ Since the features are not good candidate to make the branches of tree this mode
 
 
 Gaussian Naive Bayes
+
 Naive Bayes is a simple technique for constructing classifiers, models that assign class labels to problem instances represented as vectors of feature values, where the class labels are drawn from some finite set.
 In simple terms, a Naive Bayes classifier assumes that the presence of a particular feature in a class is unrelated to the presence of any other feature which is theory sounds to be a good candidate based on features type and description on this experiment, but the training result shows the highest rate of 0.88 which is unacceptable.
 
 Conclusion
+
 Based on result of comparing different machine learning algorithms using accuracy, error, precision, recall and 10 folds average criteria we realized “Logistic Regression” has better performance among other algorithms tested on this experiment.
 Considering high model accuracy of 0.9174 and low error rate of 0.0826 on logistic regression model, it has been concluded this model is acceptable and could be used for prediction of “Capital Gains” based on “income census data.
 
 References
+
 https://ikompass.edu.sg/logistic-regression-use-case-classification-problems-by-prakash-roshan
 https://en.wikipedia.org/wiki/AdaBoost
 https://machinelearningmastery.com/boosting-and-adaboost-for-machine-learning/
